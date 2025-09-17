@@ -190,6 +190,7 @@ TODOS OS PROCESSOS FORAM EXECUTADOS COM SUCESSO
 ### Otimizações
 - Para arquivos com muitos processos (>1000), apenas resumos são exibidos
 - Atualizações de estado otimizadas para grandes volumes
+- Inibido alguns prints do escalonador, para otimizar o terminal e evitar gargalo na execução (para ativar basta remover as "//" na frente de cada "System.out.Println")
 
 ---
 
