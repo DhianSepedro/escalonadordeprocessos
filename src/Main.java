@@ -17,7 +17,7 @@ public class Main {
             if (processosLidos == 0) {
                 System.out.println("Nenhum processo foi encontrado no arquivo ou arquivo está vazio.");
                 System.out.println("Executando com processos de exemplo...\n");
-                executarComProcessosDeExemplo(listaEspera);
+                
                 return;
             }
             
@@ -31,14 +31,14 @@ public class Main {
             listaEspera.executarSimulacao();
             
             
-            mostrarEstatisticasFinais(listaEspera);
+            
             
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
             System.out.println("Certifique-se de que o arquivo '" + nomeArquivo + "' existe e está no diretório correto.");
             
             System.out.println("\nExecutando com processos de exemplo...\n");
-            executarComProcessosDeExemplo(listaEspera);
+            
         }
     }
     
@@ -75,9 +75,9 @@ public class Main {
                 }
                                      
             } catch (Exception e) {
-                System.err.println("✗ Erro na linha " + numeroLinha + ": " + linha);
+                System.err.println("Erro na linha " + numeroLinha + ": " + linha);
                 System.err.println("  Motivo: " + e.getMessage());
-                System.err.println("  Formato esperado: id;NOME;prioridade;ciclos_necessarios");
+                System.err.println("  Formato esperado: id;NOME;prioridade;ciclos_necessarios;recurso_necessario (se houver)");
             }
         }
         
@@ -132,60 +132,5 @@ public class Main {
             throw new IllegalArgumentException("Erro ao converter números: " + e.getMessage());
         }
     }
-    // Executa a simulação com processos de exemplo criados hardcoded
-    private static void executarComProcessosDeExemplo(Espera listaEspera) {
-        System.out.println("Criando processos de exemplo...\n");
-        
-        Processos p1 = criarProcesso(1, "ProcessoA", 1, 8, "CPU, Memoria");
-        Processos p2 = criarProcesso(2, "ProcessoB", 2, 6, "CPU, Disco");
-        Processos p3 = criarProcesso(3, "ProcessoC", 3, 4, "CPU");
-        Processos p4 = criarProcesso(4, "ProcessoD", 1, 5, "CPU, Rede");
-        Processos p5 = criarProcesso(5, "ProcessoE", 2, 3, "CPU, Memoria");
-        
-        listaEspera.chegadaProcesso(p1);
-        listaEspera.chegadaProcesso(p2);
-        listaEspera.chegadaProcesso(p3);
-        listaEspera.chegadaProcesso(p4);
-        listaEspera.chegadaProcesso(p5);
-        
-        System.out.println("\n" + "=".repeat(50));
-        System.out.println("Estado inicial do sistema:");
-        listaEspera.mostrarEstadoFilas();
-        
-        listaEspera.executarSimulacao();
-        mostrarEstatisticasFinais(listaEspera);
-    }
-    // Cria um processo com os parâmetros fornecidos pelo sistema
-     private static Processos criarProcesso(int id, String nome, int prioridade, 
-                                         int ciclos, String recursos) {
-        Processos processo = new Processos();
-        processo.id = id;
-        processo.nome = nome;
-        processo.prioridade = prioridade;
-        processo.ciclos_necessarios = ciclos;
-        processo.recursos_necessarios = recursos; 
-        
-        //System.out.println("Criado: " + nome + " (Prioridade: " + prioridade + 
-                          //", Ciclos: " + ciclos + ", Recursos: " + recursos + ")");
-        
-        return processo;
-    }
-    //retorno das estatisticas finais do sistema para o usuario
-    private static void mostrarEstatisticasFinais(Espera sistema) {
-        System.out.println("\n" + "=".repeat(50));
-        System.out.println("RELATORIO FINAL");
-        System.out.println("=".repeat(50));
-        System.out.println("Processos completados: " + sistema.getTotalCompletos());
-        System.out.println("Processos pendentes: " + sistema.getTotalPendentes());
-        System.out.println("Processos em execução: " + sistema.getTotalEmExecucao());
-        
-        if (sistema.getTotalPendentes() == 0 && sistema.getTotalEmExecucao() == 0) {
-            System.out.println("\nTODOS OS PROCESSOS FORAM EXECUTADOS COM SUCESSO");
-        } else {
-            System.out.println("\n Ainda há processos pendentes ou em execução.");
-        }
-        
-        System.out.println("\n" + "=".repeat(50));
-        System.out.println("Simulação finalizada.");
-    }
-}
+  }
+  
