@@ -76,11 +76,11 @@ O **icevOS** é um simulador de escalonamento de processos desenvolvido em Java 
 1. **Crie um arquivo chamado `processos.txt`** no mesmo diretório dos arquivos compilados:
    ```
    # Formato: id;NOME;prioridade;ciclos_necessarios;recurso_necessario
-   1;ProcessoA;1;10;CPU, Memoria
-   2;ProcessoB;2;8;CPU, Disco  
+   1;ProcessoA;1;10;CPU,Memoria
+   2;ProcessoB;2;8;CPU,Disco  
    3;ProcessoC;3;6;CPU
-   4;ProcessoD;1;12;CPU, Rede
-   5;ProcessoE;2;5;CPU, Memoria
+   4;ProcessoD;1;12;CPU,Rede
+   5;ProcessoE;2;5;CPU,Memoria
    ```
 
 2. **Execute o simulador:**
@@ -126,11 +126,11 @@ id;NOME;prioridade;ciclos_necessarios;recurso_necessario
 ### Exemplo de arquivo válido:
 ```
 # Este é um comentário - será ignorado
-1;SistemaOperacional;1;15;CPU, Memoria
-2;EditorTexto;2;8;CPU, Disco
+1;SistemaOperacional;1;15;CPU
+2;EditorTexto;2;8;Disco
 3;Calculadora;3;4;CPU
-4;NavegadorWeb;1;20;CPU, Rede, Memoria
-5;PlayerMusica;2;6;CPU, Disco
+4;NavegadorWeb;1;20;Rede
+5;PlayerMusica;2;6;Memoria
 ```
 
 ---
