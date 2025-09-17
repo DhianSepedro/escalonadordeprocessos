@@ -31,14 +31,13 @@ public class Main {
             listaEspera.executarSimulacao();
             
             
-
             mostrarEstatisticasFinais(listaEspera);
-
+            
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
             System.out.println("Certifique-se de que o arquivo '" + nomeArquivo + "' existe e está no diretório correto.");
             
-
+            System.out.println("\nExecutando com processos de exemplo...\n");
             executarComProcessosDeExemplo(listaEspera);
         }
     }
@@ -133,7 +132,6 @@ public class Main {
             throw new IllegalArgumentException("Erro ao converter números: " + e.getMessage());
         }
     }
-
     // Executa a simulação com processos de exemplo criados hardcoded
     private static void executarComProcessosDeExemplo(Espera listaEspera) {
         System.out.println("Criando processos de exemplo...\n");
@@ -191,7 +189,3 @@ public class Main {
         System.out.println("Simulação finalizada.");
     }
 }
-
-  }
-  
-
