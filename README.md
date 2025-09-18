@@ -73,7 +73,7 @@ O **icevOS** é um simulador de escalonamento de processos desenvolvido em Java 
 
 #### Método 1: Com arquivo de processos (Recomendado)
 
-1. **Crie um arquivo chamado `processos.txt`** no mesmo diretório dos arquivos compilados:
+1. **Crie um arquivo chamado `processos.txt`** na pasta raiz do projeto:
    ```
    # Formato: id;NOME;prioridade;ciclos_necessarios;recurso_necessario
    1;ProcessoA;1;10;CPU,Memoria
@@ -200,7 +200,7 @@ TODOS OS PROCESSOS FORAM EXECUTADOS COM SUCESSO
 **Solução:** Verifique se todos os arquivos foram compilados corretamente e se você está no diretório correto.
 
 ### Erro: "Arquivo não encontrado"
-**Solução:** Certifique-se de que o arquivo `processos.txt` está no mesmo diretório dos arquivos `.class` compilados.
+**Solução:** Certifique-se de que o arquivo `processos.txt` está na pasta raiz do programa(pasta pai da src).
 
 ### Formato inválido no arquivo
 **Solução:** Verifique se cada linha segue exatamente o formato: `id;NOME;prioridade;ciclos;recurso`
